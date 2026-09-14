@@ -448,11 +448,18 @@ button {
     gap: 4rem;
   }
 
-  .contact__actions { margin-top: 0; }
+.contact__actions {
+  display: grid;
+  gap: 0.7rem;
+  margin-top: 0.45rem;
+}
 
-  .price__card { padding: 1.7rem 0; }
-  .price__copy { max-width: 38rem; margin-left: auto; }
-  .price__included { grid-template-columns: repeat(3, 1fr); }
+.contact__actions img {
+  width: 40px !important;
+  height: 40px !important;
+  max-width: none;
+  object-fit: contain;
+  flex: 0 0 40px;
 }
 
 @media (min-width: 64rem) {
