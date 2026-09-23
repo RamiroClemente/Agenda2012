@@ -611,3 +611,9 @@ figcaption { font-size: 10pt; }
     transition-duration: 0.01ms !important;
   }
 }
+
+.utility__text-button {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
