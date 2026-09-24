@@ -13,16 +13,16 @@
   let index = 0;
   let startX = null;
   let deltaX = 0;
-  const pad = (n) => String(n).padStart(2, '0');
+
+  const pad = value => String(value).padStart(2, '0');
   total.textContent = pad(slides.length);
 
   const render = () => {
-    track.style.transform = `translate3d(${-index * 100}%, 0, 0)`;
-    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+    track.style.transform = 'translate3d(' + (-index * 100) + '%,0,0)';
     current.textContent = pad(index + 1);
   };
 
-  const go = (nextIndex) => {
+  const go = nextIndex => {
     index = (nextIndex + slides.length) % slides.length;
     render();
   };
@@ -30,20 +30,19 @@
   prev.addEventListener('click', () => go(index - 1));
   next.addEventListener('click', () => go(index + 1));
 
-  viewport.addEventListener('keydown', (event) => {
+  viewport.addEventListener('keydown', event => {
     if (event.key === 'ArrowLeft') go(index - 1);
     if (event.key === 'ArrowRight') go(index + 1);
   });
 
-  viewport.addEventListener('pointerdown', (event) => {
+  viewport.addEventListener('pointerdown', event => {
     startX = event.clientX;
     deltaX = 0;
     viewport.setPointerCapture?.(event.pointerId);
   });
 
-  viewport.addEventListener('pointermove', (event) => {
-    if (startX === null) return;
-    deltaX = event.clientX - startX;
+  viewport.addEventListener('pointermove', event => {
+    if (startX !== null) deltaX = event.clientX - startX;
   });
 
   const endSwipe = () => {
