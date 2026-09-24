@@ -145,18 +145,18 @@ p, dt, dd, a, button, li, figcaption { font-size: 10pt; }
   position: relative;
   flex: 0 0 100%;
   min-width: 0;
-  min-height: clamp(28rem, 74vh, 52rem);
   display: grid;
   place-items: center;
   background: var(--white);
+  padding: 0;
 }
 .carousel__slide img {
   width: auto;
-  height: auto;
   max-width: 100%;
-  max-height: min(78vh, 52rem);
+  height: auto;
+  max-height: 82vh;
   object-fit: contain;
-  image-rendering: auto;
+  background: var(--white);
 }
 .carousel__slide--captioned figcaption {
   position: absolute;
@@ -203,7 +203,12 @@ p, dt, dd, a, button, li, figcaption { font-size: 10pt; }
 .prose { display: grid; gap: 1rem; }
 
 .options { display: grid; gap: 2rem; }
-.option { padding-bottom: 2rem; border-bottom: 1px solid var(--ink); }
+.option {
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem 0 2.2rem;
+  border-bottom: 1px solid var(--ink);
+}
 .option:last-child { padding-bottom: 0; border-bottom: 0; }
 .option__body { display: grid; gap: 1rem; }
 .option__heading {
